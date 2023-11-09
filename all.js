@@ -111,7 +111,7 @@ console.log(calculateProcess(5,5,'/'));
 // 題目9：商業邏輯題：增加服務費
 // <!-- 作答開始 -->
 function serviceCharge(num){
-  return num*1.05;
+  return num;
 }
 // <!-- 作答結束  -->
 const total = serviceCharge(100);
@@ -120,7 +120,7 @@ console.log(`您總計費用為 ${total}元`)
 // 題目10：重構題：消除重複，抽離變因
 // 第一個參數為冰的數量
 // 兩個函式裡面的服務費都是一樣的，可以嘗試抽出來成一個新函式 serviceCharge，專門來計算兩間店的服務費
-function serviceCharge(num,number){
+function serviceCharge2(num,number){
     const subTotal = num*number;
     const serviceCharge = subTotal * 0.1;
     const total = subTotal + serviceCharge;
@@ -128,13 +128,13 @@ function serviceCharge(num,number){
 }
 
 function sixAngleCalculate(num){
-    return serviceCharge(num,100);
+    return serviceCharge2(num,100);
 
   }
   
   //
   function eightAngleCalculate(num){
-    return serviceCharge(num,800);
+    return serviceCharge2(num,800);
   }
   
   console.log(sixAngleCalculate(1),eightAngleCalculate(1))
