@@ -24,7 +24,7 @@ console.log(subtract(8,3));
 
 //題目3：相乘三次 (*)
 function multiply3Times(x) { 
-    return x*x*x;
+    return x**3;
  }
 // input 輸入
 console.log(multiply3Times(3));
@@ -120,21 +120,44 @@ console.log(`您總計費用為 ${total}元`)
 // 題目10：重構題：消除重複，抽離變因
 // 第一個參數為冰的數量
 // 兩個函式裡面的服務費都是一樣的，可以嘗試抽出來成一個新函式 serviceCharge，專門來計算兩間店的服務費
-function serviceCharge2(num,number){
-    const subTotal = num*number;
-    const serviceCharge = subTotal * 0.1;
-    const total = subTotal + serviceCharge;
+//自己寫答案
+// function serviceCharge1(num,number){
+//     const subTotal = num*number;
+//     const serviceCharge = subTotal * 0.1;
+//     const total = subTotal + serviceCharge;
+//     return total;
+// }
+// function sixAngleCalculate(num){
+//     return serviceCharge1(num,100);
+//   }
+  
+//   //
+//   function eightAngleCalculate(num){
+//     return serviceCharge1(num,800);
+//   }
+//   console.log("題目10：重構題：消除重複，抽離變因")
+//   console.log(sixAngleCalculate(1),eightAngleCalculate(1))
+// //答案
+// 函式1
+function serviceChargeTwo(subTotal) {
+    const total = subTotal * 1.1;
+    //Math.floor 是回傳整數的方式(https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Math/floor)，若不使用會出現後面的小數點部分，主要是牽涉到浮點數的問題，是屬於更進階的程式語言概念。
+    return Math.floor(total);
+  }
+  
+  //函式2
+  function sixAngleCalculate(num) {
+    const subTotal = num * 100;
+    const total = serviceChargeTwo(subTotal);
     return total;
-}
-
-function sixAngleCalculate(num){
-    return serviceCharge2(num,100);
-
   }
   
-  //
-  function eightAngleCalculate(num){
-    return serviceCharge2(num,800);
+  //函式3
+  function eightAngleCalculate(num) {
+    const subTotal = num * 800;
+    const total = serviceChargeTwo(subTotal);
+    return total;
   }
   
-  console.log(sixAngleCalculate(1),eightAngleCalculate(1))
+  console.log(sixAngleCalculate(1));
+  console.log(eightAngleCalculate(1));
